@@ -1,0 +1,128 @@
+		DOCUMENTATION FOR COLON CANCER DATASET
+
+THe description of the data is as follows
+
+Variable	Variable description	Code	Code Definition
+Name(*)
+
+PATNO		Patient number
+
+TRNO		Treatment		 1	Observation
+					 2	Levamisole alone
+					 3	5-FU + Levamisole
+
+DAYREG		Day of registration 
+
+MTHREG		Month of registration
+
+YRREG		Year of registration
+
+DAYLC		Day of last contact or death
+
+MTHLC		Month of last contact or death
+
+YRLC		Year of last contact or death
+
+STATUS		Survival status		 0	Alive
+					 1	Dead
+
+DAYPRGREL	Day of prog/relapse
+
+MTHPRGREL	Month of prog/relapse
+
+YRPRGREL	Year of prog/relapse
+
+STRATNO         Stratification level (see note @ below)
+
+SEX		Sex			 0	Female
+					 1	Male
+
+PT1SITE		Location of primary	 1	Cecum
+		neoplasm		 2	Right Colon
+					 3	Hepatic flexure
+					 4	Transverse colon
+					 5	Splenic flexure
+					 6 	Left colon
+					 7 	Sigmoid colon
+					 8	Rectosigmoid
+					 9	Rectum
+					10	Multiple sites
+
+HISTYPE		Histologic type		 1	Adenocarcinoma
+					 2	Colloid(mucinous)
+					 3 	Signet ring type
+					 4	Other
+
+
+CDIFINTG	Differentiation		 1	Well
+					 2	Moderate well (gr 2-3)
+					 3	Poor (grade 4)
+
+
+EXTLOC		Extent of local spread	 1	Submucosa/not muscle
+					 2	Muscular/not serosa
+				 	 3	Serosa/not contiguos
+					 4	Contiguos structures
+
+OBSTRC		Obstruction		 0	No
+					 1	Yes
+
+PERFOR		Perforation		 0	No
+					 1	Yes
+
+ADHERE		Adherence		 0	No
+					 1	Yes
+
+REGIMP		Regional Implants	 0	No
+					 1	Yes
+
+CEAPREOP        Pre-operative CEA level, missing for many patients
+
+NOPOSND         Nodal involvement (number of positive nodes)
+
+DAYRES          Day of tumor resection
+
+MTHRES	        Month of tumor resection
+
+YRRES           Year of tumor resection
+
+DAYRX           Day of start of treatment
+
+MTHRX           Month of start of treatment
+
+YRRX            Year of start of treatment
+
+PRGREL		Prog/relapse status	 0	No
+					 1	Yes
+
+AGE		Patient age at registration
+
+DAYS            Number of days from tumor resection to start of 
+                treatment.
+
+TIME            Time for registration to death or last contact
+                (see status)
+
+GROUP           1: Data from SWOG 8591 (aka Int - 0035)
+                2: Data from NCCTG
+
+(*) You can name the variables whatever you want.  Most of the names are
+from the original SAS dataset.  
+
+@STRATNO -- possible values range from 1-24
+
+If stratno is in (2,5,8,11,14,17,20,23) then lymph nodes = 1-4, if
+stratno is in (3,6,9,12,15,18,21,24) then lymph nodes > 4.  If stratno
+is in (1,4,7,10,13,16,19,22) then lymph nodes = 0(by definition of
+dukes B).
+
+If stratno is in 1-12 then days from surgery to registration = "7-20
+days", otherwise if stratno is in 13-24 then days from surgery to
+registration = "21-30 days".
+
+This additional information is useful because some patients have a
+missing value for "number of positive lymph nodes" or "resection
+date".  By using a patient's stratification number, one is able to
+categorize the patient without knowing the exact value.
+
+
